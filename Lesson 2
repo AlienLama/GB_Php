@@ -1,0 +1,149 @@
+<?php
+
+// EXERCISE N1
+function ex1($a, $b){
+    if($a >= 0 && $b >= 0){
+        return $a - $b;
+    }elseif($a < 0 && $b < 0){
+        return $a * $b;
+    }else{
+        return $a + $b;
+    }
+} 
+
+// EXERCISE N2
+function summ($arg1, $arg2){
+    return $arg1 + $arg2;
+}
+function diff($arg1, $arg2){
+    return $arg1 - $arg2;
+}
+function product($arg1, $arg2){
+    return $arg1 * $arg2;
+}
+function quotient($arg1, $arg2){
+    return $arg1 / $arg2;
+}
+
+// EXERCISE N3
+function mathOperation($arg1, $arg2, $operation){
+    switch($operation){
+        case("summ"):
+            return $arg1 + $arg2;
+            break;
+        case("diff"):
+            return $arg1 - $arg2;
+            break;
+        case("product"):
+            return $arg1 * $arg2;
+            break;
+        case("quotient"):
+            return $arg1 / $arg2;
+            break;
+        default:
+        return "Not a Number";
+    }
+
+}
+
+// EXERCISE N5*
+function power($val, $pow){
+    $result = 1;
+
+    for($i = 0; $i < $pow; $i++){
+        $result = $result * $val;
+    }
+
+    return $result;
+}
+
+// EXERCISE N6*
+function dataDateNow(){
+    $hour = date("G");
+
+    if($hour == 1 || $hour == 21){
+        return $hour." час ";
+    }elseif($hour >= 2 && $hour <= 4 || $hour >= 22 && $hour <= 24){
+        return $hour." часa ";
+    }else{
+        return $hour." часов ";
+    }
+}
+
+function dataMinuteNow(){
+    $min = date("i");
+
+    if($min == 1 || $min == 21 || $min == 31 || $min == 41 || $min == 51){
+        return $min." минута ";
+    }elseif($min >= 2 && $min <= 4 || $min >= 22 && $min <= 24 || $min >= 32 && $min <= 34 || $min >= 42 && $min <= 44 || $min >= 52 && $min <= 54 ){
+        return $min." минуты ";
+    }else{
+        return $min." минут ";
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CW L2</title>
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        font-size: 13px;
+    }
+    body{
+        padding: 2px 20px;
+        background: #111;
+        color: #00cc00;
+        line-height:20px;
+    }
+    footer {
+        position: absolute;
+        bottom: 15px;
+        left: 49%;
+    }
+    footer p{
+        font-size: 10px;
+    }
+</style>
+    <h1>Exercise N1</h1>
+    <h4><?= ex1(8, 2) ?></h4>
+    <h4><?= ex1(4, -2) ?></h4>
+    <h4><?= ex1(-5, -3) ?></h4>
+    <br>
+
+    <h1>Exercise N2</h1>
+    <h4>5 + 2 = <?= summ(5, 2) ?></h4>
+    <h4>6 - 4 = <?= diff(6, 4) ?></h4>
+    <h4>4 * 3 = <?= product(4, 3) ?></h4>
+    <h4>15 / 5 = <?= quotient(15, 5) ?></h4>
+    <br>
+
+    <h1>Exercise N3</h1>
+    <h4>5 + 2 = <?= mathOperation(5, 2, "summ") ?></h4>
+    <h4>6 - 4 = <?= mathOperation(6, 4, "diff") ?></h4>
+    <h4>4 * 3 = <?= mathOperation(4, 3, "product") ?></h4>
+    <h4>15 / 5 = <?= mathOperation(15, 5, "quotient") ?></h4>
+    <br>
+
+    <!-- EXERCISE N4 -->
+    <footer><p><?= date("Y"); ?></p></footer>
+
+    <!-- EXERCISE N5* -->
+    <h1>Exercise N5*</h1>
+    <h4>3 ^ 4 = <?= power(3, 4); ?></h4>
+    <br>
+
+    <!-- EXERCISE N6* -->
+    <h1>Exercise N6*</h1>
+    <h4> <?= dataDateNow(), dataMinuteNow() ?></h4>
+
+</body>
+</html>
